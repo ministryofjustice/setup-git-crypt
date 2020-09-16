@@ -1,15 +1,15 @@
-# Ministry of Justice Template Repository
+# setup-kd
 
-Use this template to [create a repository] with the default initial files for a Ministry of Justice Github repository, including:
+This actions sets up your GitHub Actions environment by building and installing [AGWA/git-crypt](https://github.com/AGWA/git-crypt) into a `bin` folder in the current workspace
 
-* The correct LICENSE
-* Github actions
-* .gitignore file
+# Usage
 
-Once you have created your repository, please:
+See [action.yml](action.yml)
 
-* Edit the copy of this README.md file to document your project
-* Grant permissions to the appropriate MoJ teams
-* Setup branch protection
-
-[create a repository]: https://github.com/ministryofjustice/template-repository/generate
+Basic:
+```yaml
+steps:
+  - uses: actions/checkout@v2
+  - uses: ministryofjustice/setup-git-crypt@main
+  - run: bin/git-crypt unlock
+```

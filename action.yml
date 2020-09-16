@@ -1,0 +1,14 @@
+name: 'Setup AGWA/git-crypt'
+description: 'Setup your GitHub Actions environment by adding AGWA/git-crypt'
+author:  'Ministry of Justice - HMPPS EMS Platform Team <hmpps-ems-platform-team@digital.justice.gov.uk>'
+branding:
+  icon: 'package'
+  color: 'blue'
+inputs:
+  gitcrypt_version:
+    description: 'Version of AGWA/git-crypt to download, please choose from https://github.com/AGWA/git-crypt/releases'
+    required: true
+    default: '0.6.0'
+runs:
+  using: 'docker'
+  image: './Dockerfile'
