@@ -1,4 +1,4 @@
-# setup-kd
+# setup-git-crypt
 
 This actions sets up your GitHub Actions environment by building and installing [AGWA/git-crypt](https://github.com/AGWA/git-crypt) into a `bin` folder in the current workspace
 
