@@ -7,6 +7,11 @@ set -o xtrace
 #######################################
 # Functions
 #######################################
+declare -xr GITHUB_BIN="github-bin"
+
+#######################################
+# Functions
+#######################################
 function parse_verion() {
   if [[ "${INPUT_GITCRYPT_VERSION}" == "latest" ]]; then
     echo "AGWA/git-crypt doesn't use proper GitHub Versioning, please use a version from https://github.com/AGWA/git-crypt/releases, or just use the action default"
@@ -15,6 +20,10 @@ function parse_verion() {
   else
     gitCryptVersion="${INPUT_GITCRYPT_VERSION}"
   fi
+}
+
+function setup_github_bin() {
+  mkdir -p ${GITHUB_BIN}
 }
 
 function download_extract_gitcrypt() {
@@ -32,14 +41,14 @@ function build_gitcrypt() {
 }
 
 function install_gitcrypt() {
-  mkdir -p bin
-  mv /tmp/git-crypt_${gitCryptVersion}/git-crypt bin/git-crypt
+  mv /tmp/git-crypt_${gitCryptVersion}/git-crypt ${GITHUB_BIN}
 }
 
 #######################################
 # Script
 #######################################
 parse_verion
+setup_github_bin
 download_extract_gitcrypt
 build_gitcrypt
 install_gitcrypt
