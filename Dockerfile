@@ -1,6 +1,6 @@
 FROM docker.io/ubuntu:18.04
 
-COPY src/setup-git-crypt.sh /src/setup-crypt.sh
+COPY src/setup-git-crypt.sh /src/setup-git-crypt.sh
 
 RUN apt-get update \
     && apt-get install -y \
@@ -10,4 +10,4 @@ RUN apt-get update \
       make \
     && apt-get clean
 
-ENTRYPOINT bash /src/setup-crypt.sh
+ENTRYPOINT bash /src/setup-git-crypt.sh

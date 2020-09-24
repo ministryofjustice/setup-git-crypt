@@ -11,5 +11,5 @@ Basic:
 steps:
   - uses: actions/checkout@v2
   - uses: ministryofjustice/setup-git-crypt@main
-  - run: bin/git-crypt unlock
+  - run: github-bin/git-crypt unlock
 ```
